@@ -3,8 +3,6 @@
   <button :disabled="isPlaying" @click="start">Start new game</button>
   <Block :delay="delay" v-if="isPlaying" @end="endGame" />
   <Results :score="score" v-if="showResults" />
-  <Alert v-if="preFire" />
-  <div class="alert-area" @click.self="togglePref"></div>
 </template>
 
 <script>
@@ -39,12 +37,6 @@ export default {
       this.score = reactionTime;
       this.isPlaying = false;
       this.showResults = true;
-    },
-    togglePref() {
-      if (this.isPlaying === true) {
-        this.preFire = true;
-        this.isPlaying = false;
-      }
     },
   },
 };
